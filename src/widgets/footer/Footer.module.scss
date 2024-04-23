@@ -1,0 +1,85 @@
+.footer {
+	@apply text-white mt-[130px];
+	background-color: #121214;
+
+	.container {
+		@apply max-w-[1360px] mx-auto my-0 py-[45px] px-[15px] flex justify-between flex-wrap;
+
+		.column {
+			@apply flex flex-col px-[15px];
+
+			h1 {
+				@apply uppercase font-extrabold max-[522px]:mt-[20px];
+				font-family: 'RF Dewi Extended', sans-serif;
+			}
+
+			> ul > li {
+				@apply my-[9px];
+
+				> a {
+					@apply text-base font-normal;
+					color: #dcdce0;
+					font-family: 'RF Dewi Extended', sans-serif;
+				}
+			}
+
+			.logo {
+				> img {
+					@apply mt-[54px];
+					opacity: 30%;
+				}
+			}
+
+			.email {
+				@apply text-sm my-[9px] underline underline-offset-2 font-normal;
+				text-decoration-color: #dcdce0;
+				color: #dcdce0;
+				font-family: 'RF Dewi Extended', sans-serif;
+			}
+
+			.phoneNumber {
+				@apply font-semibold;
+				font-family: 'RF Dewi Extended', sans-serif;
+			}
+
+			.social {
+				@apply my-[9px];
+
+				h1 {
+					@apply font-bold;
+				}
+
+				> div {
+					@apply mt-3;
+					@apply flex;
+
+					> a:not(:first-child) {
+						@apply ml-[9px];
+					}
+				}
+			}
+
+			.form {
+				@apply flex w-full max-w-sm items-center space-x-2;
+
+				> button {
+					@apply bg-white rounded-full;
+				}
+			}
+
+			.subscribe {
+				@apply w-[274px] mt-[15px];
+				color: #707076;
+			}
+
+			.linksTwo {
+				@apply flex flex-col mt-[51px];
+
+				> a {
+					@apply underline underline-offset-2 uppercase;
+					color: #707076;
+				}
+			}
+		}
+	}
+}

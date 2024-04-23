@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'fonts/rw-dewi/stylesheet.css';
+@import 'fonts/cera-pro/stylesheet.css';
+
+:root {
+	--foreground-rgb: 0, 0, 0;
+	--background-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--foreground-rgb: 0, 0, 0;
+		--background-rgb: 0, 0, 0;
+	}
+}
+
+html,
+body {
+	@apply h-full;
+}
+
+body {
+	color: rgb(var(--foreground-rgb));
+	background: rgb(var(--background--rgb));
+	@apply flex flex-col overflow-y-auto overflow-x-hidden;
+
+	main {
+		@apply text-justify grow;
+	}
+
+	footer {
+		@apply grow-0 shrink-0 basis-0;
+	}
+}

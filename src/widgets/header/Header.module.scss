@@ -1,0 +1,51 @@
+.header {
+	@apply grow-0 shrink-0 basis-auto min-h-[100px] text-white p-[15px];
+	background-color: #121214;
+
+	.container {
+		@apply max-w-[1360px] mx-auto my-0 flex justify-between items-center flex-wrap
+    h-full max-[346px]:flex-nowrap;
+		font-family: 'RF Dewi Extended', sans-serif;
+
+		.logo {
+			@apply flex items-center;
+		}
+
+		.links {
+			@apply flex flex-wrap max-[768px]:hidden;
+
+			> *:not(:first-child) {
+				@apply ml-[40px];
+			}
+		}
+
+		.icons {
+			@apply flex;
+
+			> a:not(:first-child),
+			.basket {
+				@apply ml-[32px] max-[346px]:ml-[20px];
+			}
+
+			.search {
+				@apply max-[364px]:hidden;
+			}
+
+			.basket {
+				@apply flex items-center;
+
+				.price {
+					@apply ml-[7px] font-bold text-sm text-zinc-400
+          max-[423px]:hidden whitespace-nowrap;
+					font-family: 'Cera Pro', sans-serif;
+				}
+
+				.count {
+					@apply ml-[5px] rounded-2xl py-0.5 px-2 bg-cyan-400
+          font-bold text-sm;
+					font-family: 'Cera Pro', sans-serif;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,43 @@
+.burger {
+	@apply ml-[34px] hidden max-[768px]:block;
+}
+
+.popup {
+	@apply fixed top-0 left-0 right-0 bottom-0 opacity-0 -z-50;
+	background-color: #121214;
+
+	.links {
+		@apply px-[44px] py-[67px];
+
+		.ul {
+			@apply text-sm font-semibold ml-[24px];
+			font-family: 'RF Dewi Extended', sans-serif;
+
+			> li:not(:first-child) {
+				@apply mt-[23px];
+			}
+		}
+
+		.link {
+			@apply text-sm font-semibold ml-[24px];
+			font-family: 'RF Dewi Extended', sans-serif;
+		}
+
+		.link:not(:first-child) {
+			@apply mt-[23px];
+		}
+	}
+
+	.title {
+		@apply text-sm font-bold uppercase;
+		font-family: 'RF Dewi Extended', sans-serif;
+	}
+}
+
+.popup.active {
+	@apply z-50 opacity-100;
+}
+
+.close {
+	@apply absolute left-[22px] top-[17px];
+}
