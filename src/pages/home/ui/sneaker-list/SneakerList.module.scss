@@ -1,0 +1,21 @@
+.sneakerList {
+	@apply mt-[80px];
+
+	.header {
+		@apply flex justify-between;
+
+		> h2 {
+			@apply font-black text-3xl uppercase;
+			font-family: 'RF Dewi Expanded', sans-serif;
+			color: #121214;
+		}
+	}
+
+	> nav {
+		@apply mt-[38px];
+
+		> ul > li {
+			@apply cursor-pointer;
+		}
+	}
+}

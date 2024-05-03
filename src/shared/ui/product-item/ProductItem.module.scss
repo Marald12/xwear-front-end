@@ -1,0 +1,24 @@
+.item {
+	@apply relative;
+
+	.star {
+		@apply absolute right-6 top-8;
+	}
+
+	.image {
+		@apply w-[318px] h-[318px] bg-white flex items-center justify-center;
+	}
+
+	.titles {
+		> h3 {
+			@apply font-bold text-lg;
+			font-family: 'RF Dewi Extended', sans-serif;
+		}
+
+		> span {
+			@apply text-sm font-normal;
+			font-family: 'RF Dewi Extended', sans-serif;
+			color: #3c3c3c;
+		}
+	}
+}

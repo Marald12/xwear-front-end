@@ -1,0 +1,11 @@
+.itemList {
+	@apply mt-[38px];
+
+	.list {
+		@apply flex flex-wrap;
+
+		div:not(:first-child) {
+			@apply ml-6;
+		}
+	}
+}
