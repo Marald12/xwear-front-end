@@ -4,11 +4,13 @@ import { toast } from 'react-toastify'
 import { setCookie } from 'cookies-next'
 
 export const authApi = {
-	async login(body: IAuthBody) {
+	async login(body: IAuthBody, isRememberMe: boolean) {
 		try {
 			const response = await axiosMain.post<IAuth>('/auth/login', body)
 
-			setCookie('token', response.data.token)
+			setCookie('token', response.data.token, {
+				maxAge: isRememberMe ? 60 * 60 * 72 : 60 * 60 * 3
+			})
 			toast.success('Авторизация прошла успешна')
 
 			return response.data
@@ -37,6 +39,7 @@ export const authApi = {
 
 			return response.data
 		} catch (e) {
+			console.log(e)
 		}
 	}
 }

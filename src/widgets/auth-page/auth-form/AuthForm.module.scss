@@ -18,4 +18,19 @@
 			color: #3c3d44;
 		}
 	}
+
+	.content {
+		@apply flex justify-between mt-[34px];
+
+		label {
+			@apply font-normal ml-2 text-sm;
+			font-family: 'RF Dewi Extended', sans-serif;
+		}
+
+		.restorePassword {
+			@apply font-normal text-sm underline underline-offset-4;
+			font-family: 'RF Dewi Extended', sans-serif;
+			color: #676767;
+		}
+	}
 }

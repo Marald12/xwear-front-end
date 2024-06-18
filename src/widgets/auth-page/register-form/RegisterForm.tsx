@@ -4,13 +4,27 @@ import styles from './RegisterForm.module.scss'
 import DefaultButton from '@/shared/ui/buttons/default-button/DefaultButton'
 import { useForm } from 'react-hook-form'
 import { authApi } from '@/shared/api/auth/auth.api'
+import { useRouter } from 'next/navigation'
+import { toast } from 'react-toastify'
+import { IForm } from './registerForm.interface'
 
 const RegisterForm: FC = () => {
-	const { handleSubmit, register, formState } = useForm()
+	const { handleSubmit, register, formState } = useForm<IForm>()
+	const router = useRouter()
 
-	const login = async (data: any) => {
+	const clickHandler = () => {
+		if (formState.errors.email) toast.error(formState.errors.email.message)
+		if (formState.errors.password)
+			toast.error(formState.errors.password.message)
+	}
+
+	const login = async (data: IForm) => {
 		const response = await authApi.register(data)
-		console.log(response)
+
+		if (response) {
+			router.push('/')
+			router.refresh()
+		}
 	}
 
 	return (

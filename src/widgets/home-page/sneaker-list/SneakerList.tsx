@@ -13,7 +13,11 @@ import {
 	PaginationNext,
 	PaginationPrevious
 } from '@/shared/components/ui/pagination'
-import { ISneakerListProps } from './sneaker-list.interface'
+
+interface ISneakerListProps {
+	url: string
+	name: string
+}
 
 const SneakerList: FC<ISneakerListProps> = ({ url, name }) => {
 	const [limit, setLimit] = useState(4)
