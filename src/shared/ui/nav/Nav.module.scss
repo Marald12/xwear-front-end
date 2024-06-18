@@ -1,0 +1,17 @@
+.nav {
+	@apply flex mt-[14px];
+
+	> div > span {
+		@apply mx-3.5;
+	}
+
+	> div {
+		@apply font-normal text-base;
+		font-family: 'RF Dewi Extended', sans-serif;
+		color: #121214;
+
+		&.hidden {
+			color: #8c8f96;
+		}
+	}
+}

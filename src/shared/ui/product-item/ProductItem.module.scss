@@ -7,6 +7,10 @@
 
 	.image {
 		@apply w-[318px] h-[318px] bg-white flex items-center justify-center;
+
+		> img {
+			@apply max-h-[318px];
+		}
 	}
 
 	.titles {

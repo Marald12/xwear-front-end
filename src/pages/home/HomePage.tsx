@@ -5,7 +5,7 @@ import SneakerList from '@/pages/home/ui/sneaker-list/SneakerList'
 import ApiProvider from '@/features/api-provider/ApiProvider'
 import HomeAboutUs from '@/pages/home/ui/about-us/HomeAboutUs'
 
-const HomePage: NextPage = () => {
+const HomePage: NextPage = async () => {
 	return (
 		<ApiProvider>
 			<div className={styles.container}>

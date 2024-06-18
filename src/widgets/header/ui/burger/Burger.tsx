@@ -1,7 +1,7 @@
 'use client'
 import styles from './Burger.module.scss'
 import { GiHamburgerMenu } from 'react-icons/gi'
-import { useState } from 'react'
+import { FC, useState } from 'react'
 import classNames from 'classnames'
 import { IoClose } from 'react-icons/io5'
 import {
@@ -15,16 +15,16 @@ import { categoryApi } from '@/shared/api/category/category.api'
 import Link from 'next/link'
 import { brandApi } from '@/shared/api/brand/brand.api'
 
-const Burger = () => {
+const Burger: FC = () => {
 	const [isActive, setIsActive] = useState(false)
 
 	const { data: categories } = useQuery({
-		queryKey: ['categories'],
+		queryKey: ['categoriesBurger'],
 		queryFn: () => categoryApi.findAll()
 	})
 
 	const { data: brands } = useQuery({
-		queryKey: ['brands'],
+		queryKey: ['brandsBurger'],
 		queryFn: () => brandApi.findAll()
 	})
 

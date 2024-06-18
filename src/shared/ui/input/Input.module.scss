@@ -1,0 +1,11 @@
+.input {
+	@apply w-[585px] border-none py-[22px] px-[16px] font-normal text-base rounded-xl;
+	background-color: #f9f9f9;
+	outline: none;
+	color: #424347;
+	font-family: 'RF Dewi Extended', sans-serif;
+
+	&::placeholder {
+		color: #3c3d44;
+	}
+}

@@ -1,0 +1,9 @@
+.button {
+	@apply text-white font-extrabold text-xs px-[27px] py-[23px] rounded uppercase min-w-[200px];
+	font-family: 'RF Dewi Expanded', sans-serif;
+	background-color: #121214;
+
+	&.blue {
+		background-color: #00bdff;
+	}
+}

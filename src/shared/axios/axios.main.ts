@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { getCookie } from 'cookies-next'
 
-const token = getCookie('token')
+const token = getCookie('token') || ''
 
 const BASE_URL = 'http://localhost:4080/api'
 

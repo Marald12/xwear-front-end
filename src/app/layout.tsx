@@ -3,6 +3,8 @@ import '../assets/globals.scss'
 import Footer from '@/widgets/footer/Footer'
 import Header from '@/widgets/header/Header'
 import ApiProvider from '@/features/api-provider/ApiProvider'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export const metadata: Metadata = {
 	title: 'XWEAR - магазин обуви. одежды и акссесуаров',
@@ -21,6 +23,7 @@ export default function RootLayout({
 					<Header />
 					<main>{children}</main>
 					<Footer />
+					<ToastContainer position='bottom-right' theme='dark' />
 				</ApiProvider>
 			</body>
 		</html>
