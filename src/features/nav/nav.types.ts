@@ -23,3 +23,9 @@ export const navAuth: INav = (isOpen: boolean) => ({
 	title: 'Авторизация',
 	isOpen
 })
+
+export const navRestorePassword: INav = (isOpen: boolean) => ({
+	url: '/restore-password',
+	title: 'Восстановление пароля',
+	isOpen
+})

@@ -19,6 +19,8 @@ const RegisterForm: FC = () => {
 	}
 
 	const login = async (data: IForm) => {
+		if (data.password !== data.repeatPassword)
+			toast.error('Пароли не совпадают')
 		const response = await authApi.register(data)
 
 		if (response) {
@@ -42,7 +44,7 @@ const RegisterForm: FC = () => {
 				{...register('repeatPassword')}
 			/>
 			<div className='flex justify-center mt-[30px]'>
-				<DefaultButton>Зарегистрироваться</DefaultButton>
+				<DefaultButton onClick={clickHandler}>Зарегистрироваться</DefaultButton>
 			</div>
 		</form>
 	)

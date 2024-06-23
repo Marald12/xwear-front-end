@@ -1,0 +1,73 @@
+.wrapper {
+	@apply mt-[48px] flex;
+
+	.filter {
+		@apply min-w-[310px];
+
+		.block {
+			@apply rounded px-[25px];
+			border: 1px solid #e6e7eb;
+
+			> div > div > h3 > button {
+				@apply uppercase font-black text-sm;
+				font-family: 'RF Dewi Extended', sans-serif;
+				color: #121214;
+			}
+
+			.link {
+				> span {
+					@apply cursor-pointer;
+					font-family: 'RF Dewi Extended', sans-serif;
+					color: #20282f;
+				}
+			}
+
+			&:not(:first-child) {
+				@apply mt-[30px];
+			}
+		}
+
+		.blockTwo {
+			@apply rounded px-[15px];
+			border: 1px solid #e6e7eb;
+
+			> div > div > h3 > button {
+				@apply uppercase font-black text-sm mx-[10px];
+				font-family: 'RF Dewi Extended', sans-serif;
+				color: #121214;
+			}
+
+			.size {
+				@apply flex-wrap;
+
+				> button {
+					@apply m-[10px] py-[8px] px-[16px] rounded w-[72px];
+					border: 1px solid #efefef;
+
+					&:hover {
+						background: #49d0ff;
+						transition: background 0.3s ease-in-out;
+						border: none;
+					}
+				}
+			}
+
+			.sizeActive {
+				background: #49d0ff;
+				border: none;
+			}
+
+			&:not(:first-child) {
+				@apply mt-[30px];
+			}
+		}
+	}
+
+	.products {
+		@apply flex flex-wrap ml-[28px];
+	}
+}
+
+.container {
+	@apply max-w-[1360px] my-0 mx-auto;
+}

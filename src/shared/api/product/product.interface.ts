@@ -17,12 +17,12 @@ export interface IProduct extends IBase {
 }
 
 export interface IProductParams {
-	searchTerm?: string
-	size?: number
-	model?: string
-	brand?: string
-	category?: string
-	mainCategory?: string
-	skip?: number
-	limit?: number
+	searchTerm?: string | null
+	size?: number | null
+	model?: string | null
+	brand?: string | null
+	category?: string | null
+	mainCategory?: string | null
+	skip?: number | null
+	limit?: number | null
 }

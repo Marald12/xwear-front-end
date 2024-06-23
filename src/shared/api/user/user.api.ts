@@ -6,6 +6,7 @@ import {
 	IUpdateUserBody,
 	IUser
 } from '@/shared/api/user/user.interface'
+import { toast } from 'react-toastify'
 
 export const userApi = {
 	async getOne(id: string) {
@@ -34,8 +35,9 @@ export const userApi = {
 			)
 
 			return request.data
-		} catch (e) {
-			console.log(e)
+		} catch (e: any) {
+			if (e.response.data.message) toast.error(e.response.data.message)
+			else console.log(e)
 		}
 	},
 	async updatePasswordFromToken(body: IUpdatePasswordFromTokenBody) {
@@ -46,8 +48,9 @@ export const userApi = {
 			)
 
 			return request.data
-		} catch (e) {
-			console.log(e)
+		} catch (e: any) {
+			if (e.response.data.message) toast.error(e.response.data.message)
+			else console.log(e)
 		}
 	},
 	async addProductToLikes(id: string) {

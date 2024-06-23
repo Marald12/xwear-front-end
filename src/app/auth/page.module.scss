@@ -6,3 +6,25 @@
 .forms {
 	@apply flex justify-between mt-[46px];
 }
+
+@media (max-width: 1384px) {
+	.forms {
+		@apply flex-wrap justify-center;
+
+		> form {
+			@apply mt-[30px];
+		}
+	}
+}
+
+@media (max-width: 700px) {
+	.forms > form > input {
+		@apply w-[385px];
+	}
+}
+
+@media (max-width: 475px) {
+	.forms > form > input {
+		@apply w-[285px];
+	}
+}

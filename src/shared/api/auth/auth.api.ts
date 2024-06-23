@@ -38,8 +38,6 @@ export const authApi = {
 			const response = await axiosMain.get('/user/get-profile')
 
 			return response.data
-		} catch (e) {
-			console.log(e)
-		}
+		} catch (e) {}
 	}
 }
