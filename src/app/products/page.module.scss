@@ -1,3 +1,18 @@
+@mixin stylesList {
+	@apply rounded px-[15px];
+	border: 1px solid #e6e7eb;
+
+	> div > div > h3 > button {
+		@apply uppercase font-black text-sm mx-[10px];
+		font-family: 'RF Dewi Extended', sans-serif;
+		color: #121214;
+	}
+
+	&:not(:first-child) {
+		@apply mt-[30px];
+	}
+}
+
 .wrapper {
 	@apply mt-[48px] flex;
 
@@ -5,37 +20,23 @@
 		@apply min-w-[310px];
 
 		.block {
-			@apply rounded px-[25px];
-			border: 1px solid #e6e7eb;
-
-			> div > div > h3 > button {
-				@apply uppercase font-black text-sm;
-				font-family: 'RF Dewi Extended', sans-serif;
-				color: #121214;
-			}
+			@include stylesList;
 
 			.link {
 				> span {
 					@apply cursor-pointer;
 					font-family: 'RF Dewi Extended', sans-serif;
 					color: #20282f;
-				}
-			}
 
-			&:not(:first-child) {
-				@apply mt-[30px];
+					&:hover {
+						opacity: 0.7;
+					}
+				}
 			}
 		}
 
 		.blockTwo {
-			@apply rounded px-[15px];
-			border: 1px solid #e6e7eb;
-
-			> div > div > h3 > button {
-				@apply uppercase font-black text-sm mx-[10px];
-				font-family: 'RF Dewi Extended', sans-serif;
-				color: #121214;
-			}
+			@include stylesList;
 
 			.size {
 				@apply flex-wrap;
@@ -45,8 +46,8 @@
 					border: 1px solid #efefef;
 
 					&:hover {
-						background: #49d0ff;
-						transition: background 0.3s ease-in-out;
+						background-color: #49d0ff;
+						transition: background-color 0.3s ease-in-out;
 						border: none;
 					}
 				}
@@ -56,15 +57,22 @@
 				background: #49d0ff;
 				border: none;
 			}
-
-			&:not(:first-child) {
-				@apply mt-[30px];
-			}
 		}
 	}
 
 	.products {
 		@apply flex flex-wrap ml-[28px];
+	}
+}
+
+.resetFilters {
+	@apply rounded py-[13px] px-[25px] uppercase font-black text-xs mx-[10px] flex items-center mt-[30px];
+	border: 1px solid #e6e7eb;
+	font-family: 'RF Dewi Extended', sans-serif;
+	color: #121214;
+
+	> svg {
+		@apply mr-[5px];
 	}
 }
 

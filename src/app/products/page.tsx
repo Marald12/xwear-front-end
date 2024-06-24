@@ -17,13 +17,21 @@ import { sizeApi } from '@/shared/api/size/size.api'
 import { productApi } from '@/shared/api/product/product.api'
 import ProductItem from '@/shared/ui/product-item/ProductItem'
 import classNames from 'classnames'
+import { brandApi } from '@/shared/api/brand/brand.api'
+import { modelApi } from '@/shared/api/model/model.api'
+import { RiCloseFill } from 'react-icons/ri'
 
 const ProductsPage: NextPage = () => {
 	const queryClient = useQueryClient()
 	const searchParams = useSearchParams()
 	const nav = new Nav([navHome(false), navCatalogItems(true)])
 	const [categoryId, setCategoryId] = useState<string | null>(null)
+	const [brandId, setBrandId] = useState<string | null>(null)
+	const [modelId, setModelId] = useState<string | null>(null)
 	const [size, setSize] = useState<number | null>(null)
+	const [mainCategoryId, setMainCategoryId] = useState<string | null>(
+		searchParams.get('category') || ''
+	)
 
 	const category = useQuery({
 		queryKey: ['categoryFilter'],
@@ -35,30 +43,62 @@ const ProductsPage: NextPage = () => {
 		queryFn: () => sizeApi.findAll()
 	})
 
+	const brands = useQuery({
+		queryKey: ['brandFilter'],
+		queryFn: () => brandApi.findAll()
+	})
+
+	const models = useQuery({
+		queryKey: ['modelFilter'],
+		queryFn: () => modelApi.findAll()
+	})
+
 	const products = useQuery({
 		queryKey: ['productsList'],
 		queryFn: () =>
 			productApi.findAll({
 				category: categoryId,
 				size,
-				mainCategory: searchParams.get('category')
+				mainCategory: mainCategoryId,
+				brand: brandId,
+				model: modelId
 			})
 	})
 
-	const clickCategoryHandler = async (id: string) => {
-		setCategoryId(id)
+	const invalidateTagsAndRefetchProducts = async () => {
 		await queryClient.invalidateQueries({
 			queryKey: ['productsList']
 		})
 		await products.refetch()
 	}
 
+	const clickCategoryHandler = async (id: string) => {
+		setCategoryId(id)
+		await invalidateTagsAndRefetchProducts()
+	}
+
+	const clickBrandHandler = async (id: string) => {
+		setBrandId(id)
+		await invalidateTagsAndRefetchProducts()
+	}
+
+	const clickModelHandler = async (id: string) => {
+		setModelId(id)
+		await invalidateTagsAndRefetchProducts()
+	}
+
 	const clickSizeHandler = async (size: number) => {
 		setSize(size)
-		await queryClient.invalidateQueries({
-			queryKey: ['sizeFilter']
-		})
-		await products.refetch()
+		await invalidateTagsAndRefetchProducts()
+	}
+
+	const resetAllFilters = async () => {
+		setSize(null)
+		setCategoryId(null)
+		setBrandId(null)
+		setModelId(null)
+		setMainCategoryId(null)
+		await invalidateTagsAndRefetchProducts()
 	}
 
 	return (
@@ -102,6 +142,40 @@ const ProductsPage: NextPage = () => {
 							</AccordionItem>
 						</Accordion>
 					</div>
+					<div className={styles.block}>
+						<Accordion type='single' collapsible className='w-full'>
+							<AccordionItem value='categories'>
+								<AccordionTrigger>Бренды</AccordionTrigger>
+								{brands.data &&
+									brands.data.map(item => (
+										<AccordionContent key={item._id} className={styles.link}>
+											<span onClick={() => clickBrandHandler(item._id)}>
+												{item.title}
+											</span>
+										</AccordionContent>
+									))}
+							</AccordionItem>
+						</Accordion>
+					</div>
+					<div className={styles.block}>
+						<Accordion type='single' collapsible className='w-full'>
+							<AccordionItem value='categories'>
+								<AccordionTrigger>Модель</AccordionTrigger>
+								{models.data &&
+									models.data.map(item => (
+										<AccordionContent key={item._id} className={styles.link}>
+											<span onClick={() => clickModelHandler(item._id)}>
+												{item.title}
+											</span>
+										</AccordionContent>
+									))}
+							</AccordionItem>
+						</Accordion>
+					</div>
+					<button className={styles.resetFilters} onClick={resetAllFilters}>
+						<RiCloseFill size={21} />
+						Сбросить все фильтры
+					</button>
 				</div>
 				<div className={styles.products}>
 					{products.data &&
