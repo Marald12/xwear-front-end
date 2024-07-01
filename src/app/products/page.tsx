@@ -20,6 +20,7 @@ import classNames from 'classnames'
 import { brandApi } from '@/shared/api/brand/brand.api'
 import { modelApi } from '@/shared/api/model/model.api'
 import { RiCloseFill } from 'react-icons/ri'
+import { categoryApi } from '@/shared/api/category/category.api'
 
 const ProductsPage: NextPage = () => {
 	const queryClient = useQueryClient()
@@ -51,6 +52,11 @@ const ProductsPage: NextPage = () => {
 	const models = useQuery({
 		queryKey: ['modelFilter'],
 		queryFn: () => modelApi.findAll()
+	})
+
+	const mainCategory = useQuery({
+		queryKey: ['mainCategoryFilter'],
+		queryFn: () => categoryApi.findOne(mainCategoryId || '')
 	})
 
 	const products = useQuery({
@@ -178,10 +184,13 @@ const ProductsPage: NextPage = () => {
 					</button>
 				</div>
 				<div className={styles.products}>
-					{products.data &&
-						products.data.map(product => (
-							<ProductItem key={product._id} product={product} />
-						))}
+					<h2>{mainCategory.data && mainCategory.data.title}</h2>
+					<div className={styles.list}>
+						{products.data &&
+							products.data.map(product => (
+								<ProductItem key={product._id} product={product} />
+							))}
+					</div>
 				</div>
 			</div>
 		</div>

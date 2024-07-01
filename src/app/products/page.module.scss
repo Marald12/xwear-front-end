@@ -61,7 +61,20 @@
 	}
 
 	.products {
-		@apply flex flex-wrap ml-[28px];
+		@apply ml-[28px];
+
+		> h2 {
+			@apply font-black text-3xl uppercase;
+			font-family: 'RF Dewi Expanded', sans-serif;
+		}
+
+		.list {
+			@apply flex flex-wrap;
+
+			> div {
+				@apply m-[10px];
+			}
+		}
 	}
 }
 
