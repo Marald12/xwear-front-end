@@ -21,12 +21,15 @@ import { brandApi } from '@/shared/api/brand/brand.api'
 import { modelApi } from '@/shared/api/model/model.api'
 import { RiCloseFill } from 'react-icons/ri'
 import { categoryApi } from '@/shared/api/category/category.api'
+import SizeButton from '@/shared/ui/size-button/SizeButton'
 
 const ProductsPage: NextPage = () => {
 	const queryClient = useQueryClient()
 	const searchParams = useSearchParams()
 	const nav = new Nav([navHome(false), navCatalogItems(true)])
-	const [categoryId, setCategoryId] = useState<string | null>(null)
+	const [categoryId, setCategoryId] = useState<string | null>(
+		searchParams.get('mainCategory' || '')
+	)
 	const [brandId, setBrandId] = useState<string | null>(null)
 	const [modelId, setModelId] = useState<string | null>(null)
 	const [size, setSize] = useState<number | null>(null)
@@ -134,15 +137,14 @@ const ProductsPage: NextPage = () => {
 								<AccordionContent className={styles.size}>
 									{sizes.data &&
 										sizes.data.map(item => (
-											<button
+											<SizeButton
 												key={item._id}
 												onClick={() => clickSizeHandler(item.size)}
 												className={classNames(
 													size == item.size && styles.sizeActive
 												)}
-											>
-												{item.size}
-											</button>
+												size={item.size}
+											/>
 										))}
 								</AccordionContent>
 							</AccordionItem>
@@ -184,7 +186,7 @@ const ProductsPage: NextPage = () => {
 					</button>
 				</div>
 				<div className={styles.products}>
-					<h2>{mainCategory.data && mainCategory.data.title}</h2>
+					<h2>Каталог</h2>
 					<div className={styles.list}>
 						{products.data &&
 							products.data.map(product => (

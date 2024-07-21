@@ -1,0 +1,17 @@
+.container {
+	@apply max-w-[475px] mt-[47px];
+
+	.block {
+		@apply flex justify-between;
+
+		> span {
+			@apply font-semibold text-sm;
+
+			font-family: 'RF Dewi Extended', sans-serif;
+		}
+
+		&:not(:first-child) {
+			@apply mt-[10px];
+		}
+	}
+}

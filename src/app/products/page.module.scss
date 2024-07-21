@@ -40,17 +40,6 @@
 
 			.size {
 				@apply flex-wrap;
-
-				> button {
-					@apply m-[10px] py-[8px] px-[16px] rounded w-[72px];
-					border: 1px solid #efefef;
-
-					&:hover {
-						background-color: #49d0ff;
-						transition: background-color 0.3s ease-in-out;
-						border: none;
-					}
-				}
 			}
 
 			.sizeActive {

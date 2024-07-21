@@ -1,0 +1,34 @@
+.container {
+	.header {
+		@apply relative flex mt-[94px] py-[16px];
+
+		border-top: 1px solid #f4f5f9;
+		border-bottom: 1px solid #f4f5f9;
+
+		> div {
+			> span {
+				@apply cursor-pointer text-lg font-semibold;
+				color: #a6a9ac;
+				font-family: 'RF Dewi Extended', sans-serif;
+			}
+			&:not(:first-child) {
+				@apply ml-[50px];
+			}
+		}
+
+		.active {
+			> span {
+				color: #000;
+			}
+
+			&::after {
+				content: '';
+				position: absolute;
+				bottom: -1px;
+				width: 6%;
+				display: block;
+				border-bottom: 1px solid #49d0ff;
+			}
+		}
+	}
+}

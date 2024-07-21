@@ -1,0 +1,92 @@
+.wrapper {
+	max-width: 1360px;
+	height: 100%;
+	margin: 0 auto;
+
+	.container {
+		@apply flex mt-[69px];
+
+		.columnSneaker {
+			@apply flex;
+
+			.images {
+				.smallImages {
+					@apply flex;
+
+					> div {
+						@apply cursor-pointer relative;
+
+						&:not(:first-child) {
+							@apply ml-[15px];
+						}
+					}
+
+					.imageActive {
+						&::after {
+							content: '';
+							position: absolute;
+							bottom: -3px;
+							width: 100%;
+							display: block;
+							border-bottom: 3px solid #49d0ff;
+						}
+					}
+				}
+
+				.downImageLine {
+					background-color: #cbced6;
+					width: 52%;
+					height: 3px;
+					border-radius: 3px;
+				}
+			}
+		}
+
+		.columnPrice {
+			@apply ml-[30px];
+
+			> h1 {
+				@apply font-black uppercase text-3xl ml-[7px];
+				font-family: 'RF Dewi Expanded', sans-serif;
+			}
+
+			.sizes {
+				@apply mt-[13px];
+
+				.sizesTitle {
+					@apply text-sm font-semibold ml-[10px] uppercase;
+					font-family: 'RF Dewi Extended', sans-serif;
+					color: #303030;
+				}
+
+				.sizeActive {
+					background: #49d0ff;
+					border: none;
+				}
+			}
+
+			.priceBlock {
+				@apply mt-[38px] flex;
+
+				.priceText {
+					@apply flex flex-col;
+
+					:nth-child(1) {
+						@apply text-xl font-semibold;
+						font-family: 'RF Dewi Extended', sans-serif;
+						color: #626262;
+					}
+
+					:nth-child(2) {
+						@apply text-sm font-semibold;
+						font-family: 'RF Dewi Extended', sans-serif;
+					}
+				}
+
+				> button {
+					@apply ml-[34px];
+				}
+			}
+		}
+	}
+}
