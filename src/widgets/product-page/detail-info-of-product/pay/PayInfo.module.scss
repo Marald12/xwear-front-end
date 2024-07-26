@@ -1,0 +1,34 @@
+.wrapper {
+	@apply mt-[44px];
+
+	.blockPaymentsMethods {
+		> h4 {
+			@apply text-xl font-semibold;
+			font-family: 'RF Dewi Extended', sans-serif;
+		}
+
+		> p {
+			@apply font-normal text-base max-w-[707px] mt-2;
+			font-family: 'RF Dewi Extended', sans-serif;
+		}
+	}
+
+	.blockBankCards {
+		@apply mt-[27px];
+
+		> h4 {
+			@apply text-xl font-extrabold;
+			font-family: 'RF Dewi Extended', sans-serif;
+		}
+
+		> img {
+			@apply mt-[13px];
+		}
+
+		> p {
+			@apply mt-[22px] font-normal text-base max-w-[909px];
+			font-family: 'RF Dewi Extended', sans-serif;
+			color: #303030;
+		}
+	}
+}

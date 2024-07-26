@@ -1,0 +1,47 @@
+@mixin blockTitle {
+	@apply font-bold text-xl;
+	font-family: 'RF Dewi Extended', sans-serif;
+}
+
+.wrapper {
+	@apply mt-[38px];
+
+	.blockInfo {
+		> h4 {
+			@include blockTitle;
+		}
+
+		> p {
+			@apply mt-[13px] max-w-[938px] text-base font-normal;
+			font-family: 'RF Dewi Extended', sans-serif;
+		}
+	}
+
+	.blockStatus {
+		@apply mt-[61px];
+
+		> h4 {
+			@include blockTitle;
+		}
+
+		.statusContainer {
+			@apply flex flex-wrap ml-[-60px];
+
+			.status {
+				@apply mx-[60px] my-[27px] w-[270px];
+				text-justify: distribute;
+
+				> h5 {
+					@apply my-[6px] font-extrabold text-lg;
+					font-family: 'RF Dewi Extended', sans-serif;
+				}
+
+				> span {
+					@apply font-normal text-base;
+					color: #686b71;
+					font-family: 'RF Dewi Extended', sans-serif;
+				}
+			}
+		}
+	}
+}

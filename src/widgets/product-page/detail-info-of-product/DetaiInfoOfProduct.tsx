@@ -5,6 +5,8 @@ import { IDetailInfoOfProductPageProps } from './detailInfoOfProduct.interface'
 import classNames from 'classnames'
 import DetailInfo from './details/DetailInfo'
 import DeliveryInfo from './delivery/DeliveryInfo'
+import PayInfo from '@/widgets/product-page/detail-info-of-product/pay/PayInfo'
+import FaqInfo from '@/widgets/product-page/detail-info-of-product/faq/FaqInfo'
 
 const DetailInfoOfProduct: FC<IDetailInfoOfProductPageProps> = ({
 	product
@@ -27,6 +29,8 @@ const DetailInfoOfProduct: FC<IDetailInfoOfProductPageProps> = ({
 			<div className={styles.content}>
 				{activeInfo === headerInfo[0] && <DetailInfo product={product} />}
 				{activeInfo === headerInfo[1] && <DeliveryInfo />}
+				{activeInfo === headerInfo[2] && <PayInfo />}
+				{activeInfo === headerInfo[3] && <FaqInfo />}
 			</div>
 		</div>
 	)

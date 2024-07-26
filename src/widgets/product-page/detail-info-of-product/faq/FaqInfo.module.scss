@@ -1,0 +1,9 @@
+.wrapper {
+	@apply mt-[61px];
+
+	.generalIssues {
+		> h3 {
+			font-family: 'RF Dewi Extended', sans-serif;
+		}
+	}
+}
