@@ -1,6 +1,6 @@
 'use client'
 import { productApi } from '@/shared/api/product/product.api'
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { NextPage } from 'next'
 import { ISingleProductPage } from './page.interface'
 import { Nav } from '@/features/nav/Nav'
@@ -14,18 +14,28 @@ import {
 import Loader from '@/shared/ui/loader/Loader'
 import styles from './page.module.scss'
 import Image from 'next/image'
-import { RefObject, useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import SizeButton from '@/shared/ui/size-button/SizeButton'
 import Button from '@/shared/ui/buttons/button/Button'
 import classNames from 'classnames'
 import DetailInfoOfProduct from '@/widgets/product-page/detail-info-of-product/DetaiInfoOfProduct'
 import SneakerList from '@/widgets/home-page/sneaker-list/SneakerList'
+import { basketApi } from '@/shared/api/basket/basket.api'
+import { useAuth } from '@/shared/hooks/useAuth'
+import { toast } from 'react-toastify'
 
 const SinglePageProduct: NextPage<ISingleProductPage> = ({ params }) => {
+	const queryClient = useQueryClient()
 	const { data, isLoading } = useQuery({
 		queryKey: ['product'],
 		queryFn: () => productApi.findOne(params.id)
 	})
+
+	const { mutate } = useMutation({
+		mutationFn: (id: string) => basketApi.addItem(id),
+		onSuccess: () => queryClient.invalidateQueries({ queryKey: ['basket'] })
+	})
+
 	const nav = new Nav([
 		navHome(false),
 		navCatalogItems(false),
@@ -35,9 +45,15 @@ const SinglePageProduct: NextPage<ISingleProductPage> = ({ params }) => {
 	])
 	const [activeImageIndex, setActiveImageIndex] = useState(0)
 	const [activeSize, setActiveSize] = useState(37.5)
+	const isAuth = useAuth()
 
 	const clickHandler = (index: number) => {
 		setActiveImageIndex(index)
+	}
+
+	const clickAddToBasketHandler = async () => {
+		if (isAuth) mutate(data!._id)
+		else toast.error('Вы не авторизованы либо перезагрузите страницу')
 	}
 
 	return (
@@ -106,7 +122,9 @@ const SinglePageProduct: NextPage<ISingleProductPage> = ({ params }) => {
 									<span>{data?.price} UAH</span>
 									<span>Размер - {activeSize}</span>
 								</div>
-								<Button>Добавить в корзину</Button>
+								<Button onClick={clickAddToBasketHandler}>
+									Добавить в корзину
+								</Button>
 							</div>
 						</div>
 					</div>

@@ -67,3 +67,9 @@ export const navProduct: INavProduct = (
 	title: product?.title || '',
 	isOpen
 })
+
+export const navProfile: INav = (isOpen: boolean) => ({
+	url: `/profile`,
+	title: 'Личный кабинет',
+	isOpen
+})

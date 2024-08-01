@@ -22,29 +22,12 @@
 		.icons {
 			@apply flex;
 
-			> a:not(:first-child),
-			.basket {
+			> a:not(:first-child) {
 				@apply ml-[32px] max-[346px]:ml-[20px];
 			}
 
 			.search {
 				@apply max-[364px]:hidden;
-			}
-
-			.basket {
-				@apply flex items-center;
-
-				.price {
-					@apply ml-[7px] font-bold text-sm text-zinc-400
-          max-[423px]:hidden whitespace-nowrap;
-					font-family: 'Cera Pro', sans-serif;
-				}
-
-				.count {
-					@apply ml-[5px] rounded-2xl py-0.5 px-2 bg-cyan-400
-          font-bold text-sm;
-					font-family: 'Cera Pro', sans-serif;
-				}
 			}
 		}
 	}

@@ -1,0 +1,44 @@
+.wrapper {
+	> h2 {
+		@apply font-black text-3xl my-[46px];
+		font-family: 'RF Dewi Expanded', sans-serif;
+	}
+
+	.container {
+		@apply flex;
+
+		.sidebar {
+			@apply py-7 px-10 rounded;
+			border: 1px solid #e9eaee;
+
+			> a {
+				@apply flex relative items-center;
+
+				> span {
+					@apply ml-5 text-base font-medium;
+					font-family: 'RF Dewi Extended', sans-serif;
+				}
+
+				&.active {
+					&::before {
+						content: '';
+						width: 1px;
+						height: 40px;
+						position: absolute;
+						background: #49d0ff;
+						left: -41px;
+						top: -10px;
+					}
+				}
+
+				&:not(:first-child) {
+					@apply mt-5;
+				}
+			}
+		}
+
+		.content {
+			@apply ml-8;
+		}
+	}
+}

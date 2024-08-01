@@ -1,9 +1,32 @@
 .wrapper {
-	@apply mt-[61px];
+	@apply mt-[61px] max-w-[810px];
 
 	.generalIssues {
+		&:not(:first-child) {
+			@apply mt-8;
+		}
+
 		> h3 {
+			@apply font-bold text-lg uppercase;
 			font-family: 'RF Dewi Extended', sans-serif;
+		}
+
+		.item {
+			&:not(:first-child) {
+				@apply mt-5;
+			}
+
+			.itemHeader {
+				@apply uppercase font-semibold text-sm;
+				font-family: 'RF Dewi Extended', sans-serif;
+				color: #121214;
+				border-bottom: 1px solid #ddd;
+			}
+
+			.itemContent {
+				@apply mt-5 ml-6 font-semibold text-sm;
+				font-family: 'RF Dewi Extended', sans-serif;
+			}
 		}
 	}
 }

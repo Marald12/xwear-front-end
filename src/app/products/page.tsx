@@ -11,7 +11,7 @@ import {
 } from '@/shared/components/ui/accordion'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { productCategoryApi } from '@/shared/api/product-category/product-category.api'
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { sizeApi } from '@/shared/api/size/size.api'
 import { productApi } from '@/shared/api/product/product.api'
@@ -23,7 +23,7 @@ import { RiCloseFill } from 'react-icons/ri'
 import { categoryApi } from '@/shared/api/category/category.api'
 import SizeButton from '@/shared/ui/size-button/SizeButton'
 
-const ProductsPage: NextPage = () => {
+const Products: NextPage = () => {
 	const queryClient = useQueryClient()
 	const searchParams = useSearchParams()
 	const nav = new Nav([navHome(false), navCatalogItems(true)])
@@ -196,6 +196,14 @@ const ProductsPage: NextPage = () => {
 				</div>
 			</div>
 		</div>
+	)
+}
+
+const ProductsPage = () => {
+	return (
+		<Suspense>
+			<Products />
+		</Suspense>
 	)
 }
 

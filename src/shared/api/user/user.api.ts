@@ -1,6 +1,7 @@
 import axiosMain from '@/shared/axios/axios.main'
 import {
 	IRepeatPasswordBody,
+	ITotalPriceAndCountItemsInBasket,
 	IUpdatePasswordBody,
 	IUpdatePasswordFromTokenBody,
 	IUpdateUserBody,
@@ -12,6 +13,26 @@ export const userApi = {
 	async getOne(id: string) {
 		try {
 			const request = await axiosMain.get<IUser>(`/user/${id}`)
+
+			return request.data
+		} catch (e) {
+			console.log(e)
+		}
+	},
+	async getProfile() {
+		try {
+			const request = await axiosMain.get<IUser>(`/user/get-profile`)
+
+			return request.data
+		} catch (e) {
+			console.log(e)
+		}
+	},
+	async getTotalPriceAndCountItemsInBasket() {
+		try {
+			const request = await axiosMain.get<ITotalPriceAndCountItemsInBasket>(
+				`/user/get-total-price-and-count-items-in-basket`
+			)
 
 			return request.data
 		} catch (e) {
