@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import styles from './page.module.scss'
-import AuthForm from '@/widgets/auth-page/auth-form/AuthForm'
-import RegisterForm from '@/widgets/auth-page/register-form/RegisterForm'
+import AuthForm from '@/widgets/auth/auth-form/AuthForm'
+import RegisterForm from '@/widgets/auth/register-form/RegisterForm'
 import { navAuth, navHome } from '@/features/nav/nav.types'
 import { Nav } from '@/features/nav/Nav'
 

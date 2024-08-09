@@ -28,6 +28,17 @@ export const userApi = {
 			console.log(e)
 		}
 	},
+	async getProfileInProfile() {
+		try {
+			const response = await axiosMain.get<IUser>('/user/get-profile')
+
+			return response.data
+		} catch (e: any) {
+			if (e.response.data.statusCode === 401) {
+				return false
+			}
+		}
+	},
 	async getTotalPriceAndCountItemsInBasket() {
 		try {
 			const request = await axiosMain.get<ITotalPriceAndCountItemsInBasket>(
@@ -35,9 +46,7 @@ export const userApi = {
 			)
 
 			return request.data
-		} catch (e) {
-			console.log(e)
-		}
+		} catch (e) {}
 	},
 	async updatePassword(body: IUpdatePasswordBody) {
 		try {

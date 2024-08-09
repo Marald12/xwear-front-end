@@ -1,8 +1,8 @@
 import { NextPage } from 'next'
 import styles from './page.module.scss'
-import MainSlider from '@/widgets/home-page/main-slider/MainSlider'
-import SneakerList from '@/widgets/home-page/sneaker-list/SneakerList'
-import HomeAboutUs from '@/widgets/home-page/about-us/HomeAboutUs'
+import MainSlider from '@/widgets/home/main-slider/MainSlider'
+import SneakerList from '@/widgets/home/sneaker-list/SneakerList'
+import HomeAboutUs from '@/widgets/home/about-us/HomeAboutUs'
 
 const HomePage: NextPage = async () => {
 	return (

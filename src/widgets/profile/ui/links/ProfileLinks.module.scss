@@ -1,0 +1,19 @@
+.links {
+	@apply flex flex-wrap;
+
+	> a {
+		@apply py-7 flex flex-col items-center m-7 w-[260px]
+    flex justify-center items-center flex-col rounded;
+		border: 1px solid #f6f6f6;
+
+		&.active {
+			border: 1px solid #49d0ff;
+		}
+
+		> h4 {
+			@apply text-base font-semibold mt-4;
+			font-family: 'RF Dewi Extended', sans-serif;
+			color: #303030;
+		}
+	}
+}

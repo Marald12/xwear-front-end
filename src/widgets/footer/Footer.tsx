@@ -61,7 +61,7 @@ const Footer: FC = async () => {
 				<div className={styles.column}>
 					<h1>Контакты</h1>
 					<span className={styles.email}>info@xwear.info</span>
-					<span className={styles.phoneNumber}>+7 993 608 38 85</span>
+					<span className={styles.phoneNumber}>+380 66 535 7890</span>
 					<div className={styles.social}>
 						<h1>Мессенджеры</h1>
 						<div>

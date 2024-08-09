@@ -13,15 +13,18 @@ import { Nav } from '@/features/nav/Nav'
 import { navHome, navProfile } from '@/features/nav/nav.types'
 import { usePathname, useRouter } from 'next/navigation'
 import { authApi } from '@/shared/api/auth/auth.api'
+import { useQueryClient } from '@tanstack/react-query'
 
 const ProfileLayout: FC<PropsWithChildren> = ({ children }) => {
 	const pathname = usePathname()
 	const router = useRouter()
+	const queryClient = useQueryClient()
 	const nav = new Nav([navHome(false), navProfile(true)])
 
-	const exitClickHandler = () => {
+	const exitClickHandler = async () => {
 		authApi.exitFromProfile()
 		router.refresh()
+		await queryClient.refetchQueries({ queryKey: ['basket', 'checkAuth'] })
 	}
 
 	return (

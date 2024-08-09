@@ -11,8 +11,10 @@ import { Checkbox } from '@/shared/components/ui/checkbox'
 import { Label } from '@/shared/components/ui/label'
 import Link from 'next/link'
 import { IForm } from './authForm.interface'
+import { useQueryClient } from '@tanstack/react-query'
 
 const AuthForm: FC = () => {
+	const queryClient = useQueryClient()
 	const { handleSubmit, register, formState } = useForm<IForm>()
 	const router = useRouter()
 	const [isRemember, setIsRemember] = useState(false)
@@ -29,6 +31,7 @@ const AuthForm: FC = () => {
 		if (response) {
 			router.push('/')
 			router.refresh()
+			await queryClient.refetchQueries({ queryKey: ['basket', 'checkAuth'] })
 		}
 	}
 

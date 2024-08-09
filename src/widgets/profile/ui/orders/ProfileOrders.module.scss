@@ -1,0 +1,31 @@
+.wrapper {
+	@apply ml-7 py-7 px-8 rounded mt-[47px];
+	border: 1px solid #e9eaee;
+
+	> h4 {
+		@apply text-2xl font-bold;
+		font-family: 'RF Dewi Extended', sans-serif;
+		color: #303030;
+	}
+
+	.column {
+		@apply mt-3.5;
+
+		.title > span {
+			@apply font-bold text-sm uppercase;
+			color: #333333;
+			font-family: 'RF Dewi Extended', sans-serif;
+			letter-spacing: 1px;
+		}
+
+		> div {
+			@apply px-4 py-4 flex justify-between;
+			border-bottom: 1px solid #ebebeb;
+
+			> span {
+				font-family: 'RF Dewi Extended', sans-serif;
+				color: #333333;
+			}
+		}
+	}
+}

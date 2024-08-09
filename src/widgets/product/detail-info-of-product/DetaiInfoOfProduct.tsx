@@ -5,8 +5,8 @@ import { IDetailInfoOfProductPageProps } from './detailInfoOfProduct.interface'
 import classNames from 'classnames'
 import DetailInfo from './details/DetailInfo'
 import DeliveryInfo from './delivery/DeliveryInfo'
-import PayInfo from '@/widgets/product-page/detail-info-of-product/pay/PayInfo'
-import FaqInfo from '@/widgets/product-page/detail-info-of-product/faq/FaqInfo'
+import PayInfo from '@/widgets/product/detail-info-of-product/pay/PayInfo'
+import FaqInfo from '@/widgets/product/detail-info-of-product/faq/FaqInfo'
 
 const DetailInfoOfProduct: FC<IDetailInfoOfProductPageProps> = ({
 	product

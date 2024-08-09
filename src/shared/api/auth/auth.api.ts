@@ -2,6 +2,7 @@ import axiosMain from '@/shared/axios/axios.main'
 import { IAuth, IAuthBody } from '@/shared/api/auth/auth.interface'
 import { toast } from 'react-toastify'
 import { deleteCookie, setCookie } from 'cookies-next'
+import { IUser } from '@/shared/api/user/user.interface'
 
 export const authApi = {
 	async login(body: IAuthBody, isRememberMe: boolean) {
@@ -39,7 +40,7 @@ export const authApi = {
 	},
 	async checkAuth() {
 		try {
-			const response = await axiosMain.get('/user/get-profile')
+			const response = await axiosMain.get<IUser>('/user/get-profile')
 
 			return response.data
 		} catch (e) {}

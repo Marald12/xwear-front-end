@@ -8,6 +8,9 @@ export interface IUser extends IBase {
 	likesProducts: IProduct[]
 	basket: IBasket
 	orders: IOrder[]
+	name?: string
+	surname?: string
+	phoneNumber?: string
 }
 
 export interface IUpdatePasswordBody {

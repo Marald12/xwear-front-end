@@ -9,7 +9,8 @@ import { userApi } from '@/shared/api/user/user.api'
 const HeaderBasket: FC = () => {
 	const { data } = useQuery({
 		queryKey: ['basket'],
-		queryFn: () => userApi.getTotalPriceAndCountItemsInBasket()
+		queryFn: () => userApi.getTotalPriceAndCountItemsInBasket(),
+		refetchInterval: () => 60000
 	})
 
 	return (
